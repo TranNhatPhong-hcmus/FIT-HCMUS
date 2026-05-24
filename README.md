@@ -4,14 +4,14 @@
 - **Tên môn học:** Cấu trúc Dữ liệu và Giải thuật
 - **Thời gian học:** Học kỳ 2 - 2025-2026
 - **Giáo viên giảng dạy, hướng dẫn:**
-  1. Phạm Trọng Nghĩa
-  2. Nguyễn Thanh Tình
-  3. Huỳnh Lâm Hải Đăng
+  1. Huỳnh Lâm Hải Đăng
+  2. Phạm Trọng Nghĩa
+  3. Nguyễn Thanh Tình 
   4. Nguyễn Ngọc Đức
 - **Danh sách sinh viên nhóm thực hiện đồ án:**
   1. Nguyễn An Thạch MSSV: 25120435
   2. Trương Công Nhật MSSV: 25120405
-  3. Trần Nhất Phong MSSV: 25120
+  3. Trần Nhất Phong MSSV: 25120413
 
 ---
 
