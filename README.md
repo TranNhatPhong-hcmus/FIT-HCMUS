@@ -1,10 +1,10 @@
-# BÁO CÁO THUẬT TOÁN
+# BÁO CÁO ĐỒ ÁN THUẬT TOÁN SORT
 
 ## THÔNG TIN CHUNG
-- **Tên môn học:** [Cấu trúc Dữ liệu và Giải thuật]
-- **Thời gian học:** [Học kỳ 2 - 2025-2026]
-- **Họ và tên sinh viên:** [Nguyễn An Thạch]
-- **MSSV:** [25120435]
+- **Tên môn học:** Cấu trúc Dữ liệu và Giải thuật
+- **Thời gian học:** Học kỳ 2 - 2025-2026
+- **Họ và tên sinh viên:** Nguyễn An Thạch
+- **MSSV:** 25120435
 
 ---
 
