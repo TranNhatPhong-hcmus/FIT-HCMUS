@@ -8,7 +8,7 @@
   2. Nguyễn Thanh Tình
   3. Huỳnh Lâm Hải Đăng
   4. Nguyễn Ngọc Đức
-- **Danh sách thành viên:**
+- **Danh sách sinh viên nhóm thực hiện đồ án:**
   1. Nguyễn An Thạch MSSV: 25120435
   2. Trương Công Nhật MSSV: 25120405
   3. Trần Nhất Phong MSSV: 25120
