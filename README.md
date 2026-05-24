@@ -29,7 +29,9 @@
   - Tối ưu hoán vị: Đổi địa chỉ con trỏ (chi phí O(1)) thay vì sao chép từng ký tự của chuỗi (chi phí O(L)).
   - Kỹ thuật Thoát sớm: Hàm so sánh trả về kết quả ngay khi thấy độ dài chuỗi khác nhau, không cần duyệt tiếp các ký tự.
   - Fast I/O: Sử dụng ios_base::sync_with_stdio(false); và cin.tie(NULL); để tăng tốc độ đọc/ghi dữ liệu tối đa.
-- **Lý giải sự lựa chọn:** [Giải thích cách Custom Comparator hoạt động. Ví dụ: "Thuật toán này chỉ đánh giá các ký tự bên trong khi hai chuỗi có cùng độ dài, giúp cắt giảm đáng kể số lần gọi hàm so sánh chuỗi tốn kém, từ đó đáp ứng được Time Limit 1s."]
+- **Lý giải lựa chọn thuật toán:**
+  - Về việc chọn thuật toán Randomize QuickSort: Bằng cách dùng hàm rand() để chọn một vị trí ngẫu nhiên làm chốt, bạn dựa vào xác suất toán học để chia đều mảng. Xác suất để rand() liên tục bốc trúng phần tử tệ nhất trong hàng chục ngàn lần lặp là vô cùng nhỏ (gần như bằng 0). Nhờ đó, thời gian chạy thực tế luôn được giữ ổn định ở mức $O(N \log N)$.
+  - 
 
 ---
 
