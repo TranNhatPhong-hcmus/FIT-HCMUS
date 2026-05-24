@@ -21,7 +21,7 @@
 
 ### 1.2. Bài B - Lexicographic Sort
 
-- **Đặc điểm bài toán:** Sắp xếp chuỗi đơn thuần theo thứ tự từ điển. skibidi
+- **Đặc điểm bài toán:** Sắp xếp chuỗi đơn thuần theo thứ tự từ điển.
   Giới hạn thời gian rộng (10s), bộ nhớ lớn (1024 MB), số lượng chuỗi lớn N <= 10000, độ dài 10 - 100.
 - **Thuật toán cài đặt:** Kết hợp Bucket Sort (phân nhóm theo 2 ký tự đầu) và Iterative
   QuickSort (sắp xếp không đệ quy) có kết hợp với Insertion Sort. Quản lý hoàn toàn thông qua mảng chỉ số (idx).
