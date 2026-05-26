@@ -54,26 +54,29 @@
 ### 2.1. Cấu trúc và logic sinh test case
 Mã trong test_gen.cpp được thiết kế để sinh dữ liệu bao phủ cả các trường hợp tổng quát (average cases) lẫn
 các trường hợp đặc biệt (edge/worst cases). Các test case được tạo dựa trên 5 kịch bản logic chính:
-- **Ngẫu nhiên hoàn toàn:** Các phần tử được sinh ngẫu nhiên tự do trên toàn bộ miền giá trị để kiểm tra tính đúng đắn tổng quát.
-- **Ngẫu nhiên có giới hạn (Độ đa dạng thấp):** Dữ liệu được xáo trộn ngẫu nhiên nhưng chỉ cấu thành từ một tập hợp rất
-  nhỏ các ký tự hoặc chữ số (ví dụ: mảng chỉ gồm các số 0 và 1).
-- **Trùng lặp hoàn toàn:** Toàn bộ dữ liệu được sinh ra đều có cùng một giá trị giống hệt nhau.
-- **Sắp xếp ngược (Worst-case):** Dữ liệu được tạo theo quy luật sắp xếp hoàn toàn theo thứ tự
-  ngược lại (ví dụ: mảng giảm dần nghiêm ngặt) để đánh giá hiệu suất của thuật toán.
-- **Đột biến nhỏ::** Các phần tử hoặc chuỗi gần như giống hệt nhau nhưng cố tình chèn thêm các sai khác nhỏ ở một vài ký tự hoặc chữ số bất kỳ.
+
+**Logic sinh test case cho bài B - Lexicographic Sort**: 
+  - **Test001.in - Trùng lặp hoàn toàn:** Toàn bộ dữ liệu được sinh ra đều có cùng một giá trị giống hệt nhau.
+  - **Test002.in - Đột biến nhỏ:** Các phần tử hoặc chuỗi gần như giống hệt nhau có các sai khác nhỏ ở duy nhất một ký tự hoặc chữ số ở cuối.
+  - **Test003.in - Sắp xếp ngược (Worst-case):** Dữ liệu được tạo theo quy luật sắp xếp hoàn toàn theo thứ tự ngược lại (ví dụ: mảng giảm dần nghiêm ngặt).
+  - **Test004.in - Ngẫu nhiên có giới hạn (Độ đa dạng thấp):** Dữ liệu được xáo trộn ngẫu nhiên nhưng chỉ cấu thành từ một tập hợp 
+    chỉ có 2 ký tự, mảng chỉ gồm các ký tự a và b.
+  - **Test005.in - Ngẫu nhiên hoàn toàn:** Các phần tử được sinh ngẫu nhiên tự do trên toàn bộ miền giá trị, từ ký tự 'a' đến 'z' để kiểm tra tính đúng đắn tổng quát.
 
 ### 2.2. Thuật toán mục tiêu
 **Các thuật toán mục tiêu:** 
 
-  - QuickSort (Pivot cố định ở đầu/cuối):** Bị nhắm đến bởi test case *Sắp xếp ngược* và *Trùng lặp hoàn toàn*. Việc chọn pivot kém khiến mảng
-  phân hoạch mất cân bằng, đẩy độ phức tạp từ $O(n \log n)$ xuống $O(n^2)$ và dễ gây tràn bộ nhớ stack.
-  - QuickSort (Phân hoạch cơ bản):** Bị nhắm đến bởi test case *Trùng lặp hoàn toàn* và *Ngẫu nhiên có giới hạn*. Thuật toán thực hiện nhiều phép hoán
-  vị và đệ quy dư thừa khi gặp các phần tử bằng nhau, làm giảm nghiêm trọng hiệu suất.
-  - Các thuật toán ngây thơ (Bubble Sort, Insertion Sort):** Bị nhắm đến bởi test case *Sắp xếp ngược*. Mảng tạo ra số lượng cặp nghịch thế tối đa,
-  buộc thuật toán thực hiện lượng phép hoán vị lớn nhất, phơi bày rõ giới hạn của độ phức tạp $O(n^2)$.
-  - Thuật toán sắp xếp chuỗi/dữ liệu phức tạp:** Bị nhắm đến bởi test case *Đột biến nhỏ*. Chi phí so sánh (Cost of Comparison) tăng vọt do
-  thuật toán lãng phí thời gian duyệt qua các đoạn dữ liệu trùng lặp dài trước khi tìm thấy sự khác biệt ở các ký tự cuối.
-
+  - **Test001.in - Trùng lặp hoàn toàn:** Toàn bộ dữ liệu được sinh ra đều có cùng một giá trị giống hệt nhau.
+    * *Thuật toán bị ảnh hưởng:* QuickSort cơ bản (Lomuto/Hoare) bị phân hoạch lệch đầu mút, thoái hóa hiệu năng từ $O(N \log N)$ xuống $O(N^2)$ và dễ gây tràn bộ nhớ stack. Xử lý bằng cách sử dụng 3-way partitioning.
+  - **Test002.in - Đột biến nhỏ:** Các phần tử hoặc chuỗi gần như giống hệt nhau có các sai khác nhỏ ở duy nhất một ký tự hoặc chữ số ở cuối.
+    * *Thuật toán bị ảnh hưởng:* Radix Sort (MSD) hoặc các hàm so sánh chuỗi. Chi phí so sánh tăng lên $O(L)$ vì phải duyệt đến tận ký tự cuối cùng mới xác định được thứ tự.
+  - **Test003.in - Sắp xếp ngược (Worst-case):** Dữ liệu được tạo theo quy luật sắp xếp hoàn toàn theo thứ tự ngược lại (ví dụ: mảng giảm dần nghiêm ngặt).
+    * *Thuật toán bị ảnh hưởng:* Insertion Sort, Bubble Sort (đạt tối đa số phép hoán vị $O(N^2)$) và QuickSort chọn pivot cố định (bị phân hoạch mất cân bằng).
+  - **Test004.in - Ngẫu nhiên có giới hạn (Độ đa dạng thấp):** Dữ liệu được xáo trộn ngẫu nhiên nhưng chỉ cấu thành từ một tập hợp chỉ có 2 ký tự, mảng chỉ gồm các ký tự a và b.
+    * *Thuật toán bị ảnh hưởng:* QuickSort không tối ưu phần tử trùng lặp. Tần suất trùng lặp cực lớn tạo ra các phân hoạch mất cân bằng nghiêm trọng, đẩy thời gian chạy tiến về $O(N^2)$.
+  - **Test005.in - Ngẫu nhiên hoàn toàn:** Các phần tử được sinh ngẫu nhiên tự do trên toàn bộ miền giá trị, từ ký tự 'a' đến 'z' để kiểm tra tính đúng đắn tổng quát.
+    * *Thuật toán bị ảnh hưởng:* Baseline test cho tất cả thuật toán để đánh giá hiệu năng ở trường hợp trung bình (Average-case). Các thuật toán tối ưu (MergeSort, HeapSort, Introsort) duy trì tốt mốc $O(N \log N)$.
+  
 ### 2.3. Lý giải việc chọn thuật toán và tác dụng của Test
 - **Lý do chọn thuật toán mục tiêu:** [Tại sao lại nhắm vào thuật toán này? (Ví dụ: Thuật toán này có điểm yếu dễ bị khai thác ở Worst-case).]
 - **Tại sao test case lại làm tăng thời gian chạy:** [Giải thích cơ chế. Ví dụ: "Vì test case cố tình tạo ra mảng đã được sắp xếp ngược, khiến cho QuickSort (chọn pivot là phần tử cuối) liên tục chia mảng thành 1 và N-1 phần tử, đẩy độ phức tạp lên O(N^2) làm tăng thời gian chạy đáng kể."]
