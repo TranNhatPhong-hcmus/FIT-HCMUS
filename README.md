@@ -53,7 +53,7 @@
   - Kỹ thuật Thoát sớm: Hàm so sánh trả về kết quả ngay khi thấy độ dài chuỗi khác nhau, không cần duyệt tiếp các ký tự.
   - Fast I/O: Sử dụng ios_base::sync_with_stdio(false); và cin.tie(NULL); để tăng tốc độ đọc/ghi dữ liệu tối đa.
 - **Lý giải lựa chọn thuật toán:**
-  - Bản code này cân bằng giữa hiệu năng và tính dễ đọc bằng cách kết hợp Quick Sort với Insertion Sort (threshold = 15). Các mảng con nhỏ sẽ không tiếp tục đệ quy để tránh cây đệ quy quá sâu và giảm tốn bộ nhớ Stack. Nhờ tận dụng khả năng phân hoạch nhanh của Quick Sort và tốc độ xử lý tốt trên mảng nhỏ của Insertion Sort, thuật toán đạt hiệu năng thực tế ổn định gần $O(N \log N)$.
+  - Bản code này cân bằng giữa hiệu năng và tính dễ đọc bằng cách kết hợp Quick Sort với Insertion Sort. Các mảng con nhỏ sẽ không tiếp tục đệ quy để tránh cây đệ quy quá sâu và giảm tốn bộ nhớ Stack. Nhờ tận dụng khả năng phân hoạch nhanh của Quick Sort và tốc độ xử lý tốt trên mảng nhỏ của Insertion Sort, thuật toán đạt hiệu năng thực tế ổn định gần $O(N \log N)$.
 
 ---
 
